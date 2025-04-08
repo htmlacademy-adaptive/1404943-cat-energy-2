@@ -1,0 +1,79 @@
+@use "../module.scss";
+
+.contacts {
+  position: relative;
+}
+
+.contacts__wrapper {
+  background-color: var(--background-color, #ffffff);
+}
+
+.contacts__block {
+  display: grid;
+  grid-template-columns: 140px 140px;
+  padding-block: 26px;
+  justify-content: space-around;
+
+  @include module.grid-md-block {
+    padding: 60px 40px;
+    grid-template-columns: 175px 160px;
+    justify-content: space-between;
+  }
+
+  @include module.grid-lg-block {
+    position: absolute;
+    background-color: var(--background-color, #ffffff);
+    padding: 60px 75px 60px 80px;
+    min-width: 565px;
+    top: 95px;
+  }
+}
+
+
+.contacts__title {
+  font-family: var(--font-family-secondary, "oswald"), "Arial", sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  color: #111111;
+
+  @include module.grid-md-block {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.contacts__address {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #444444;
+
+  @include module.grid-md-block {
+    text-align: right;
+    font-size: 16px;
+  }
+
+  @include module.grid-lg-block {
+    text-align: left;
+  }
+}
+
+.contacts__address-city {
+  display: block;
+
+  @include module.grid-md-block {
+    margin-top: 20px;
+  }
+}
+
+.contacts__maps {
+  display: flex;
+  justify-content: center;
+  height: 362px;
+
+  @include module.grid-md-block {
+    height: 400px;
+  }
+}

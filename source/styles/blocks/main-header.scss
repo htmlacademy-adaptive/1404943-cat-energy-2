@@ -1,0 +1,72 @@
+@use "../mixins/grid.scss";
+
+.main-header {
+  background-color: transparent;
+
+  @include grid.lg-block {
+    position: relative;
+  }
+}
+
+.main-header__nav {
+  padding-block: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #d9d9d9;
+
+  @include grid.md-block {
+    padding-block: 24px;
+    border-bottom: none;
+  }
+
+  @include grid.lg-block {
+    padding-block: 55px;
+  }
+}
+
+.main-header__nav-block {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  background-color: var(--background-color, #ffffff);
+  transition: grid-template-rows 0.2s;
+  position: absolute;
+  inset: calc(100% + 1px) 0 auto;
+  z-index: 1;
+
+  &--menu-open {
+    grid-template-rows: 1fr;
+
+    & .main-header__nav-site {
+      visibility: visible;
+    }
+  }
+
+  @include grid.md-block {
+    position: relative;
+    display: flex;
+    margin-right: 3px;
+  }
+
+  @include grid.lg-block {
+    background-color: transparent;
+  }
+}
+
+.main-header__nav-site {
+  visibility: hidden;
+  min-height: 0;
+  transition: visibility 0.2s;
+
+  @include grid.md-block {
+    visibility: visible;
+  }
+}
+
+.main-header__burger {
+  @include grid.md-block {
+    display: none;
+  }
+}
