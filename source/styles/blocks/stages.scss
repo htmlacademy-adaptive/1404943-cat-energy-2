@@ -15,14 +15,9 @@
 }
 
 .stages__title {
-  font-size: 36px;
-  line-height: 40px;
-  font-family: var(--font-family-secondary, "Oswald"), "Arial", sans-serif;
-  margin-block: 0 40px;
+  margin-bottom: 44px;
 
   @include module.grid-md-block {
-    font-size: 60px;
-    line-height: 60px;
     margin-bottom: 30px;
   }
 }
@@ -67,7 +62,7 @@
     display: block;
     width: 60px;
     height: 60px;
-    background-color: #68b738;
+    background-color: module.$var-bg-color-accent;
     background-repeat: no-repeat;
     background-position: center;
     flex-shrink: 0;
@@ -104,7 +99,7 @@
     content: counter(stages);
     font-size: 280px;
     line-height: 1;
-    font-family: var(--font-family-secondary, "Oswald"), "Arial", sans-serif;
+    font-family: module.$var-font-family-secondary;
     display: none;
 
     @include module.grid-md-block {
