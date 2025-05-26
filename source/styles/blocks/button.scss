@@ -1,0 +1,46 @@
+@use "../module.scss";
+
+.button {
+  display: block;
+  cursor: pointer;
+  background-color: module.$var-bg-color-accent;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: module.$var-font-family-secondary;
+  text-transform: uppercase;
+  border: none;
+  color: module.$var-color-text-secondary;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  transition-property: background-color, color;
+  transition-duration: module.$var-transition-duration;
+
+  &--secondary {
+    background-color: module.$var-bg-color-secondary;
+    color: #444444;
+  }
+
+  &--size-xl-from-md {
+    @include module.grid-md-block {
+      font-size: 20px;
+      line-height: 26px;
+      padding: 14px;
+    }
+  }
+
+  &--size-xl {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 15px;
+  }
+
+  @include module.grid-hover {
+    background-color: module.$var-bg-color-button;
+  }
+
+  &:active {
+    color: rgba(#ffffff, 0.3);
+  }
+}

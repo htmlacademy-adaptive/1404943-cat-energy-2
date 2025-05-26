@@ -1,1 +1,3 @@
-/* здесь подключите шрифты */
+@use "../module";
+@include module.fonts("Lato", "lato/Lato-Regular", 400, normal);
+@include module.fonts("Oswald", "oswald/oswaldregular", 400, normal);

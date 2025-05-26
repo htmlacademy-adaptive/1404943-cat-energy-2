@@ -1,0 +1,165 @@
+@use "../module.scss";
+
+.hero {
+  font-family: module.$var-font-family-secondary;
+  color: module.$var-color-text-secondary;
+  position: relative;
+
+  @include module.grid-md-block {
+    color: module.$var-color-text-accent;
+  }
+
+  @include module.grid-lg-block {
+    position: static;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    inset: 0 0 auto;
+    height: 63%;
+    z-index: -2;
+
+    @include module.grid-md-block {
+      display: none;
+    }
+
+    @include module.grid-lg-block {
+      display: block;
+      left: 50%;
+      height: 100%;
+    }
+  }
+
+  &::before {
+    background-image:
+      image-set(
+        "../images/hero/hero-bg@1x.webp" 1x type("image/webp"),
+        "../images/hero/hero-bg@1x.png" 1x type("image/png"),
+        "../images/hero/hero-bg@2x.webp" 2x type("image/webp"),
+        "../images/hero/hero-bg@2x.png" 2x type("image/png"),
+      ),
+      module.$var-line-gradient;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include module.grid-lg-block {
+      background-image:
+        image-set(
+          "../images/hero/hero-bg-desktop@1x.webp" 1x type("image/webp"),
+          "../images/hero/hero-bg-desktop@1x.png" 1x type("image/png"),
+          "../images/hero/hero-bg-desktop@2x.webp" 2x type("image/webp"),
+          "../images/hero/hero-bg-desktop@2x.png" 2x type("image/png")
+        ),
+        module.$var-line-gradient;
+      background-position: left center;
+      background-size: auto 100%;
+    }
+  }
+
+  &::after {
+    background-color: module.$var-bg-color-accent-opacity;
+  }
+}
+
+.hero__wrapper {
+  min-height: 480px;
+  padding-top: 27px;
+
+  @include module.grid-md-block {
+    padding-top: 37px;
+    min-height: 830px;
+  }
+
+  @include module.grid-lg-block {
+    padding-top: 50px;
+    min-height: 520px;
+  }
+}
+
+.hero__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  @include module.grid-md-block {
+    padding-inline: 90px;
+    text-align: left;
+  }
+
+  @include module.grid-lg-block {
+    padding-inline: 80px;
+    width: 50%;
+  }
+}
+
+.hero__title {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 25px;
+  font-weight: 400;
+  color: inherit;
+
+  @include module.grid-md-block {
+    font-size: 60px;
+    margin-bottom: 40px;
+  }
+}
+
+.hero__text {
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-block: 0 29px;
+
+  @include module.grid-md-block {
+    font-size: 20px;
+    margin-bottom: 45px;
+  }
+
+  @include module.grid-lg-block {
+    margin-bottom: 50px;
+  }
+}
+
+.hero__img-wrapper {
+  @include module.grid-md-block {
+    order: 10;
+    margin-inline: -90px;
+  }
+}
+
+.hero__img {
+  vertical-align: top;
+
+  @include module.grid-md-block {
+    position: absolute;
+    z-index: -1;
+    margin-top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include module.grid-lg-block {
+    position: absolute;
+    left: auto;
+    margin-top: -80px;
+    right: -390px;
+    transform: translateX(0);
+    top: 0;
+  }
+}
+
+.hero__button {
+  margin-top: 3px;
+  width: auto;
+
+  @include module.grid-md-block {
+    min-width: 242px;
+    align-self: start;
+  }
+}

@@ -1,0 +1,78 @@
+@use "../module.scss";
+
+.nav-site {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: module.$var-font-family-secondary;
+  color: module.$var-color-text-accent;
+
+  @include module.grid-md-block {
+    border: none;
+    flex-direction: row;
+    gap: 10px 35px;
+  }
+}
+
+.nav-site--contrast {
+  @include module.grid-lg-block {
+    color: module.$var-color-text-secondary;
+  }
+
+  & .nav-site__link--current::after {
+    @include module.grid-lg-block {
+      background-color: module.$var-bg-color;
+    }
+  }
+}
+
+.nav-site__item {
+  text-align: center;
+}
+
+.nav-site__link {
+  position: relative;
+  display: block;
+  padding-block: 23px 24px;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  border-bottom: 1px solid #e6e6e6;
+  padding-inline: 20px;
+  transition-property: opacity;
+  transition-duration: module.$var-transition-duration;
+
+  @include module.grid-hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  @include module.grid-md-block {
+    border: none;
+    font-size: 18px;
+    line-height: 133%;
+    padding: 12px 0;
+  }
+
+  @include module.grid-lg-block {
+    font-size: 20px;
+  }
+}
+
+.nav-site__link--current::after {
+  @include module.grid-md-block {
+    display: block;
+    content: "";
+    bottom: 3px;
+    position: absolute;
+    height: 2px;
+    background-color: module.$var-bg-color-accent;
+    width: 100%;
+  }
+}

@@ -1,0 +1,162 @@
+@use "../module.scss";
+
+.example {
+  --padding-bg: 619px;
+  background-color: module.$var-bg-color-example;
+  padding-block: 25px 40px;
+
+  @include module.grid-md-block {
+    background-image: linear-gradient(module.$var-bg-color var(--padding-bg, 619px), module.$var-bg-color-example var(--padding-bg, 619px));
+    padding-block: 45px 100px;
+  }
+
+  @include module.grid-lg-block {
+    --padding-bg: 170px;
+    padding-block: 35px 75px;
+  }
+}
+
+.example__wrapper {
+  @include module.grid-lg-block {
+    display: grid;
+    grid-template-columns: 432px 560px;
+    justify-content: space-between;
+  }
+}
+
+.example__title {
+  margin-bottom: 44px;
+
+  @include module.grid-md-block {
+    margin-bottom: 60px;
+  }
+
+  @include module.grid-lg-block {
+    margin-bottom: 146px;
+  }
+}
+
+.example__desc {
+  margin-block: 0 20px;
+
+  @include module.grid-md-block {
+    margin-bottom: 55px;
+  }
+
+  @include module.grid-lg-block {
+    margin-bottom: 68px;
+  }
+}
+
+.example__desc-list {
+  display: grid;
+  grid-template-columns: 124px 124px;
+  justify-content: space-around;
+  gap: 18px 32px;
+  margin-block: 0 20px;
+
+  @include module.grid-md-block {
+    grid-template-columns: 162px 162px 1fr;
+    column-gap: 43px;
+    margin-bottom: 100px;
+  }
+
+  @include module.grid-lg-block {
+    row-gap: 55px;
+    margin: 0;
+  }
+}
+
+.example__desc-text {
+  margin-left: 0;
+  display: inline;
+}
+
+.example__desc-title {
+  display: inline;
+}
+
+.example__block {
+  display: flex;
+  text-align: center;
+  font-family: module.$var-font-family-secondary;
+  font-weight: 400;
+  color: module.$var-color-text-accent;
+}
+
+.example__block--block {
+  flex-direction: column;
+  align-items: center;
+
+  & .example__desc-title {
+    text-transform: lowercase;
+    font-family: module.$var-font-family;
+    font-size: 12px;
+    line-height: 1;
+    width: calc(100% - (22px * 2));
+    background-color: module.$var-bg-color-example;
+    margin-top: -10px;
+
+    @include module.grid-md-block {
+      background-color: module.$var-bg-color;
+      width: calc(100% - (10px * 2));
+      display: inline-block;
+      font-size: 14px;
+      margin-top: -8px;
+    }
+
+    @include module.grid-lg-block {
+      background-color: module.$var-bg-color-example;
+    }
+  }
+
+  & .example__desc-text {
+    align-self: normal;
+    border: 1px solid module.$var-border-color;
+    order: -1;
+    font-size: 24px;
+    line-height: 24px;
+    padding: 14px 14px 18px;
+    text-transform: uppercase;
+
+    @include module.grid-md-block {
+      font-size: 30px;
+      line-height: 37px;
+    }
+  }
+}
+
+.example__block--line {
+  display: inline-block;
+  text-transform: uppercase;
+  justify-content: center;
+  grid-column: -1 / 1;
+  font-size: 14px;
+  line-height: 20px;
+
+  @include module.grid-md-block {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    grid-column: auto;
+    justify-self: end;
+    text-align: right;
+    font-size: 20px;
+  }
+
+  @include module.grid-lg-block {
+    display: inline-block;
+    grid-column: -1 / 1;
+    justify-self: start;
+  }
+
+  & .example__desc-text {
+    @include module.grid-lg-block {
+      margin-left: 63px;
+    }
+  }
+}
+
+.example__slider {
+  margin-inline: auto;
+}

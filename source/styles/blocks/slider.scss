@@ -1,0 +1,92 @@
+@use "../module.scss";
+
+.slider {
+  --slider-color: #{module.$var-bg-color-secondary-dark};
+  width: 280px;
+  height: 256px;
+  position: relative;
+
+  @include module.grid-md-block {
+    width: 560px;
+    height: 512px;
+  }
+
+  .no-js & {
+    height: auto;
+  }
+}
+
+.slider__button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  padding: 0;
+  border-radius: 5px;
+  left: calc(50% - 2px);
+  z-index: 10;
+  background-color: var(--slider-color, module.$var-bg-color-secondary-dark);
+  border: none;
+  transition-duration: module.$var-transition-duration;
+  transition-property: background-color, opacity;
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--slider-color, module.$var-bg-color-secondary-dark);
+    background-color: module.$var-bg-color;
+    transition-duration: module.$var-transition-duration;
+    transition-property: border-color;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    mask-image: url("./../../icons/slider-button.svg");
+    background-color: var(--slider-color, module.$var-bg-color-secondary-dark);
+    width: 24px;
+    height: 18px;
+    transition-duration: module.$var-transition-duration;
+    transition-property: background-color;
+  }
+
+  &:hover {
+    --slider-color: #{module.$var-bg-color-accent};
+  }
+
+  &:active {
+    --slider-color: #{module.$var-bg-color-button};
+    opacity: 0.6;
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.slider__block {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &--before {
+    clip-path: inset(0 50% 0 0);
+  }
+
+  &--after {
+    clip-path: inset(0 0 0 50%);
+  }
+
+  .no-js & {
+    clip-path: none;
+    position: relative;
+  }
+}

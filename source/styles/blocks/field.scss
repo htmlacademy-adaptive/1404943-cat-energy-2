@@ -1,0 +1,15 @@
+@use "../module.scss";
+
+.field {
+  display: grid;
+  font-family: module.$var-font-family-secondary;
+}
+
+.field__input {
+  padding: 13px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: inherit;
+  flex-shrink: 1;
+  border: 1px solid module.$var-border-color;
+}

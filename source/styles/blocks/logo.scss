@@ -1,0 +1,38 @@
+@use "../module.scss";
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  @include module.grid-md-block {
+    column-gap: 13px;
+  }
+
+  @include module.grid-hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.logo__img {
+  &--text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include module.grid-md-block {
+      position: static;
+      transform: translateX(0);
+    }
+
+    @include module.grid-lg-block {
+      width: 118px;
+      height: 21px;
+    }
+  }
+}
